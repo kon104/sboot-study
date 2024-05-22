@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p>Spring test</p>
+	<form th:action="search" method="post">
+		<input type="number" name="uid" />
+		<input type="text" name="password" />
+		<button type="submit">send</button>
+	</form>
+	<th:block th:if="${rs != null}" th:object="${rs}">
+		<span th:text='*{name}'></span>
+	</th:block>
+</body>
+</html>
