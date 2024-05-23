@@ -5,7 +5,7 @@ Repository for studying Spring Boot.
 ```
 $ sudo apt update
 $ sudo apt upgrade
-$ sudo apt install openjdk-11-jdk-headless
+$ sudo apt install openjdk-21-jdk-headless
 $ sudo apt install maven
 
 $ git clone https://github.com/kon104/sboot-study.git
