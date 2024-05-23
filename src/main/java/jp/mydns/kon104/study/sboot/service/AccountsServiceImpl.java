@@ -12,7 +12,7 @@ public class AccountsServiceImpl implements AccountsService {
 	@Autowired
 	private final AccountsRepository accountsRepository;
 
-	AccountsServiceImpl(AccountsRepository accountsRepository){
+	public AccountsServiceImpl(AccountsRepository accountsRepository){
 		this.accountsRepository = accountsRepository;
 	}
 

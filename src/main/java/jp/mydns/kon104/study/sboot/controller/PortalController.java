@@ -1,23 +1,27 @@
 package jp.mydns.kon104.study.sboot.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;
 
 @Controller
 public class PortalController {
 
 	@RequestMapping("/")
-	public String index(Model model) {
-		System.out.println("Started PortalController#index()");
-		return "portal/index";
+	public ModelAndView index(ModelAndView mav) {
+		UtilEnvInfo.showCurrentClassMethod();
+		mav.setViewName("portal/index");
+		return mav;
 	}
 
 	@GetMapping("/hello")
-	public String hello(Model model) {
-		System.out.println( "Started PortalController#hello()" );
-		return "portal/hello";
+	public ModelAndView hello(ModelAndView mav) {
+		UtilEnvInfo.showCurrentClassMethod();
+		mav.setViewName("portal/hello");
+		return mav;
 	}
 
 }

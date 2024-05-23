@@ -6,20 +6,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table(name = "accounts")
 public class Accounts {
-
-	public Accounts() {}
-	
-	public Accounts(int uid, String name, String password) {
-		this.uid = uid;
-		this.name = name;
-		this.password = password;
-	}
 
 	@Id
 	@Column(name = "uid")
