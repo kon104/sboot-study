@@ -7,6 +7,7 @@ $ sudo apt update
 $ sudo apt upgrade
 $ sudo apt install openjdk-21-jdk-headless
 $ sudo apt install maven
+$ sudo apt install git curl net-tools
 
 $ git clone https://github.com/kon104/sboot-study.git
 
