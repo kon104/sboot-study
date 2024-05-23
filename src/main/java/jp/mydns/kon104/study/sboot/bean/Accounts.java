@@ -14,6 +14,12 @@ import lombok.Data;
 public class Accounts {
 
 	public Accounts() {}
+	
+	public Accounts(int uid, String name, String password) {
+		this.uid = uid;
+		this.name = name;
+		this.password = password;
+	}
 
 	@Id
 	@Column(name = "uid")

@@ -1,16 +1,14 @@
-package jp.mydns.kon104.study.sboot;
+package jp.mydns.kon104.study.sboot.controller;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-class SbootStudyApplicationTests {
+public class PortalControllerTest {
 
 	@Test
-	void contextLoads() {
+	public void indexTest() {
 		System.out.printf("%s#%s\n",
 				new Object(){}.getClass().getEnclosingClass().getName(),
 				new Object(){}.getClass().getEnclosingMethod().getName());
-	}
 
+	}
 }
