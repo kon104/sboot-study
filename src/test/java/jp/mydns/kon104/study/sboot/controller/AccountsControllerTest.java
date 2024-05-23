@@ -66,13 +66,14 @@ public class AccountsControllerTest {
 	@Test
 	public void searchパラメータ有りTest()  throws Exception {
 		UtilEnvInfo.showCurrentClassMethod();
-		Accounts account = accounts.get(3);
+//		Accounts account = accounts.get(3);
+		Accounts account = new Accounts(2, "Nancy", "pw2");
 		this.mockMvc.perform(post("/accounts/search")
 				.param("uid", String.valueOf(account.getUid()))
 				.param("password", account.getPassword()))
 			.andExpect(status().isOk())
-			.andExpect(view().name("accounts/index"));
-//			.andExpect(model().attribute("rs", account));
+			.andExpect(view().name("accounts/index"))
+			.andExpect(model().attribute("rs", account));
 		// 課題：HTTP送信先で動いている AccountsController までモックの注入方法(DI)が分からない
 	}
 
