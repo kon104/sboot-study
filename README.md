@@ -16,6 +16,9 @@ $ mvn spring-boot:run
 ```
 
 ## How to set up My SQL Server.
+
+Log in to the Docker container and create the enviroment by following steps.
+
 ```
 $ sudo apt install mysql-server-8.0
 $ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
