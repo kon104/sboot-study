@@ -26,6 +26,7 @@ $ sudo service mysql start
 $ sudo mysql -u root
 
 CREATE DATABASE springbootdb;
+USE springbootdb;
 CREATE TABLE accounts (
   uid INT(11) AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(64),
