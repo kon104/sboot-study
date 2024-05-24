@@ -17,9 +17,17 @@ $ mvn spring-boot:run
 
 ## How to set up My SQL Server.
 
+At first, create the Docker container to run MySQL Server.
+```
+host $ docker pull ubuntu
+host $ docker run -d --name my-ubuntu-mysql -p 3306:3306 -t ubuntu
+```
+
 Log in to the Docker container where you want to run MySQL Server, and create the environment using following steps.
 
 ```
+host $ docker exec -it my-ubuntu-mysql /bin/bash
+
 guest $ sudo apt install -y vim git curl net-tools iputils-ping lsb-release
 quest $ sudo apt install -y mysql-server-8.0
 guest $ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
