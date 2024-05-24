@@ -36,7 +36,8 @@ guest $ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
 
 guest $ sudo service mysql start
 guest $ sudo mysql -u root
-
+```
+```
 CREATE DATABASE springbootdb;
 USE springbootdb;
 CREATE TABLE accounts (
