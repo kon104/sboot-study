@@ -17,16 +17,16 @@ $ mvn spring-boot:run
 
 ## How to set up My SQL Server.
 
-Log in to the Docker container and create the enviroment by following steps.
+Log in to the Docker container and create the environment by following steps.
 
 ```
-$ sudo apt install mysql-server-8.0
-$ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
+quest $ sudo apt install mysql-server-8.0
+guest $ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
   -	bind-address        = 127.0.0.1
   +	# bind-address        = 127.0.0.1
 
-$ sudo service mysql start
-$ sudo mysql -u root
+guest $ sudo service mysql start
+guest $ sudo mysql -u root
 
 CREATE DATABASE springbootdb;
 USE springbootdb;
@@ -40,6 +40,8 @@ INSERT INTO accounts (name,password) VALUES ('Nancy','pw2');
 CREATE USER hoge IDENTIFIED BY 'password';
 GRANT select ON springbootdb.* TO 'hoge'@'%';
 ```
-
-
+If you create the environment by steps above, you can access from the host os to mysql server on the Docker container by a command below.
+```
+host $ mysql -u hoge -p -h 127.0.0.1
+```
 
