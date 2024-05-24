@@ -20,7 +20,8 @@ $ mvn spring-boot:run
 Log in to the Docker container and create the environment by following steps.
 
 ```
-quest $ sudo apt install mysql-server-8.0
+guest $ sudo apt install -y vim git curl net-tools iputils-ping lsb-release
+quest $ sudo apt install -y mysql-server-8.0
 guest $ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
   -	bind-address        = 127.0.0.1
   +	# bind-address        = 127.0.0.1
