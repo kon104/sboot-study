@@ -49,8 +49,16 @@ INSERT INTO accounts (name,password) VALUES ('Nancy','pw2');
 CREATE USER hoge IDENTIFIED BY 'password';
 GRANT select ON springbootdb.* TO 'hoge'@'%';
 ```
+
 If you create the environment by steps above, you can access from the Host OS to MySQL Server on the Docker container using a command below.
 ```
 host $ mysql -u hoge -p -h 127.0.0.1
 ```
 
+If you restart the Docker container, you have to start the process of MySQL Server because it was stopped when the Docker container stopped.
+```
+host $ docker stop my-ubuntu-mysql
+host $ docker start my-ubuntu-mysql
+host $ docker exec -it my-ubuntu-mysql /bin/bash
+guest $ sudo service mysql start
+```
