@@ -18,7 +18,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.mydns.kon104.study.sboot.bean.Accounts;
+import jp.mydns.kon104.study.sboot.bean.Account;
 import jp.mydns.kon104.study.sboot.service.AccountsService;
 import jp.mydns.kon104.study.sboot.testutil.TestUtilMockHelper;
 import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;
@@ -30,7 +30,7 @@ public class AccountsControllerTest {
 	@Autowired
 	private MockMvc mockMvc;
 
-	private static List<Accounts> accounts;
+	private static List<Account> accounts;
 
 	@Mock
 	private static AccountsService mockService;
@@ -48,7 +48,7 @@ public class AccountsControllerTest {
 	@Test
 	public void indexRequetByHttpTest()  throws Exception {
 		UtilEnvInfo.showCurrentClassMethod();
-		Accounts account = null;
+		Account account = null;
 		this.mockMvc.perform(get("/accounts/"))
 			.andExpect(status().isOk())
 			.andExpect(view().name("accounts/index"))
@@ -58,7 +58,7 @@ public class AccountsControllerTest {
 	@Test
 	public void searchRequetByHttpパラメータ無しTest()  throws Exception {
 		UtilEnvInfo.showCurrentClassMethod();
-		Accounts account = null;
+		Account account = null;
 		this.mockMvc.perform(get("/accounts/search"))
 			.andExpect(status().isOk())
 			.andExpect(view().name("accounts/index"))
@@ -68,10 +68,10 @@ public class AccountsControllerTest {
 	@Test
 	public void searchRequetByHttpパラメータ有りTest()  throws Exception {
 		UtilEnvInfo.showCurrentClassMethod();
-		Accounts account = new Accounts(2, "Nancy", "pw2");
+		Account account = new Account(2, "Nancy", 25, "kanagawa");
 		this.mockMvc.perform(post("/accounts/search")
 				.param("uid", String.valueOf(account.getUid()))
-				.param("password", account.getPassword()))
+				.param("age", String.valueOf(account.getAge())))
 			.andExpect(status().isOk())
 			.andExpect(view().name("accounts/index"))
 			.andExpect(model().attribute("rs", account));
@@ -90,17 +90,18 @@ public class AccountsControllerTest {
 	@Test
 	public void searchTest() {
 		UtilEnvInfo.showCurrentClassMethod();
-		for (Iterator<Accounts> itr = accounts.iterator(); itr.hasNext();) {
-			Accounts account = itr.next();
+		for (Iterator<Account> itr = accounts.iterator(); itr.hasNext();) {
+			Account account = itr.next();
 			ModelAndView mav = new ModelAndView();
-			mav = accountsController.search(mav, account.getUid(), account.getPassword());
+			mav = accountsController.search(mav, account.getUid(), account.getAge());
 			Map<String, Object> map = mav.getModel();
-			Accounts result = (Accounts)map.get("rs");
+			Account result = (Account)map.get("rs");
 			assertThat(mav.getViewName()).isEqualTo("accounts/index");
 			assertThat(result.getUid()).isEqualTo(account.getUid());
 			assertThat(result.getName()).isEqualTo(account.getName());
-			assertThat(result.getPassword()).isEqualTo(account.getPassword());
-			System.out.printf("\tuid=%s, name=%s, pw=%s\n", result.getUid(), result.getName(), result.getPassword());
+			assertThat(result.getAge()).isEqualTo(account.getAge());
+			assertThat(result.getAddress()).isEqualTo(account.getAddress());
+			System.out.printf("\tuid=%d, name=%s, age=%d, address=%s\n", result.getUid(), result.getName(), result.getAge(), result.getAddress());
 		}
 	}
 	

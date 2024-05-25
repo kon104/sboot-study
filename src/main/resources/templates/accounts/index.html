@@ -8,7 +8,7 @@
 	<p>Spring test</p>
 	<form th:action="search" method="post">
 		<input type="number" name="uid" />
-		<input type="text" name="password" />
+		<input type="number" name="age" />
 		<button type="submit">send</button>
 	</form>
 	<th:block th:if="${rs != null}" th:object="${rs}">

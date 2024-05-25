@@ -1,9 +1,9 @@
 package jp.mydns.kon104.study.sboot.service;
 
-import jp.mydns.kon104.study.sboot.bean.Accounts;
+import jp.mydns.kon104.study.sboot.bean.Account;
 
 public interface AccountsService {
 
-	public Accounts searchAccount(int id,String password);
+	public Account searchAccount(int id, int age);
 
 }

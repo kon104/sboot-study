@@ -12,7 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import jp.mydns.kon104.study.sboot.bean.Accounts;
+import jp.mydns.kon104.study.sboot.bean.Account;
 import jp.mydns.kon104.study.sboot.repository.AccountsRepository;
 import jp.mydns.kon104.study.sboot.testutil.TestUtilMockHelper;
 import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;
@@ -20,7 +20,7 @@ import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;
 @SpringBootTest
 public class AccountsServiceTest {
 
-	private static List<Accounts> accounts;
+	private static List<Account> accounts;
 
 	@Mock
 	private static AccountsRepository mockRepository;
@@ -43,13 +43,14 @@ public class AccountsServiceTest {
 	@Test
 	public void searchAccountTest() {
 		UtilEnvInfo.showCurrentClassMethod();
-		for (Iterator<Accounts> itr = accounts.iterator(); itr.hasNext();) {
-			Accounts user = itr.next();
-			Accounts result = target.searchAccount(user.getUid(), user.getPassword());
-			assertThat(result.getUid()).isEqualTo(user.getUid());
-			assertThat(result.getName()).isEqualTo(user.getName());
-			assertThat(result.getPassword()).isEqualTo(user.getPassword());
-			System.out.printf("\tuid=%s, name=%s, pw=%s\n", result.getUid(), result.getName(), result.getPassword());
+		for (Iterator<Account> itr = accounts.iterator(); itr.hasNext();) {
+			Account account = itr.next();
+			Account result = target.searchAccount(account.getUid(), account.getAge());
+			assertThat(result.getUid()).isEqualTo(account.getUid());
+			assertThat(result.getName()).isEqualTo(account.getName());
+			assertThat(result.getAge()).isEqualTo(account.getAge());
+			assertThat(result.getAddress()).isEqualTo(account.getAddress());
+			System.out.printf("\tuid=%d, name=%s, age=%d, address=%s\n", result.getUid(), result.getName(), result.getAge(), result.getAddress());
 		}
 	}
 
