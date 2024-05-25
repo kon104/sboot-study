@@ -8,6 +8,7 @@ import java.util.List;
 
 import jp.mydns.kon104.study.sboot.bean.Accounts;
 import jp.mydns.kon104.study.sboot.repository.AccountsRepository;
+import jp.mydns.kon104.study.sboot.service.AccountsService;
 
 public class TestUtilMockHelper {
 
@@ -28,4 +29,13 @@ public class TestUtilMockHelper {
 		}
 		return mock;
 	}
+
+	public static AccountsService trainAcServiceSearchAccount(AccountsService mock, List<Accounts> list) {
+		for (Iterator<Accounts> itr = list.iterator(); itr.hasNext();) {
+			Accounts account = itr.next();
+			when(mock.searchAccount(account.getUid(), account.getPassword())).thenReturn(account);
+		}
+		return mock;
+	}
+
 }

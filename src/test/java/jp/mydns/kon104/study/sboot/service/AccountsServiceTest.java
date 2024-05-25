@@ -14,20 +14,19 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import jp.mydns.kon104.study.sboot.bean.Accounts;
 import jp.mydns.kon104.study.sboot.repository.AccountsRepository;
-import jp.mydns.kon104.study.sboot.testutil.TestUtilMockBaseBuilder;
 import jp.mydns.kon104.study.sboot.testutil.TestUtilMockHelper;
 import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;
 
 @SpringBootTest
 public class AccountsServiceTest {
-	
+
+	private static List<Accounts> accounts;
+
 	@Mock
-	private static AccountsRepository mockRepository = TestUtilMockBaseBuilder.buildAccountsRepository();
-	
+	private static AccountsRepository mockRepository;
+
 	@InjectMocks
 	private static AccountsServiceImpl target;
-	
-	private static List<Accounts> accounts;
 
 	@BeforeAll
 	public static void advancePreparation() {

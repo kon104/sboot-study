@@ -25,7 +25,7 @@ public class AccountsController {
 	@GetMapping("/")
 	public ModelAndView index(ModelAndView mav) {
 		UtilEnvInfo.showCurrentClassMethod();
-		mav.addObject("rs", new Accounts());
+		mav.addObject("rs", null);
 		mav.setViewName("accounts/index");
 		return mav;
 	}
