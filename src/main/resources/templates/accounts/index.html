@@ -5,14 +5,20 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<p>Spring test</p>
+	<p>Spring test</p><span><a href="./..">go back top page</a></span>
 	<form th:action="search" method="post">
 		<input type="number" name="uid" />
 		<input type="number" name="age" />
 		<button type="submit">send</button>
 	</form>
-	<th:block th:if="${rs != null}" th:object="${rs}">
-		<span th:text='*{name}'></span>
-	</th:block>
+	<table>
+		<tr><th>uid</th><th>name</th><th>age</th><th>address</th></tr>
+		<tr th:each="ac : ${rs}" th:object="${ac}">
+			<td th:text="*{uid}"></td>			
+			<td th:text="*{name}"></td>
+			<td th:text="*{age}"></td>
+			<td th:text="*{address}"></td>
+		</tr>
+	</table>
 </body>
 </html>

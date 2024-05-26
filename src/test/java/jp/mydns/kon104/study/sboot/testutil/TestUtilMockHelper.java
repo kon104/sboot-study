@@ -21,11 +21,13 @@ public class TestUtilMockHelper {
 		list.add(new Account(5, "伊藤", 50, "大阪府"));
 		return list;
 	}
-	
-	public static AccountsRepository trainAcRepoFindByUidAndPassword(AccountsRepository mock, List<Account> list) {
+
+	public static AccountsRepository trainAcRepoFindByUidAndAgeOrderByUid(AccountsRepository mock, List<Account> list) {
 		for (Iterator<Account> itr = list.iterator(); itr.hasNext();) {
 			Account account = itr.next();
-			when(mock.findByUidAndAge(account.getUid(), account.getAge())).thenReturn(account);
+			List<Account> accounts = new ArrayList<>();
+			accounts.add(account);
+			when(mock.findByUidAndAgeOrderByUid(account.getUid(), account.getAge())).thenReturn(accounts);
 		}
 		return mock;
 	}
@@ -33,7 +35,9 @@ public class TestUtilMockHelper {
 	public static AccountsService trainAcServiceSearchAccount(AccountsService mock, List<Account> list) {
 		for (Iterator<Account> itr = list.iterator(); itr.hasNext();) {
 			Account account = itr.next();
-			when(mock.searchAccount(account.getUid(), account.getAge())).thenReturn(account);
+			List<Account> accounts = new ArrayList<>();
+			accounts.add(account);
+			when(mock.searchAccount(account.getUid(), account.getAge())).thenReturn(accounts);
 		}
 		return mock;
 	}

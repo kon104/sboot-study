@@ -37,7 +37,7 @@ public class AccountsServiceTest {
 	public void eachInitialization() {
 		UtilEnvInfo.showCurrentClassMethod();
 		accounts = TestUtilMockHelper.composeAccounts();
-		mockRepository  = TestUtilMockHelper.trainAcRepoFindByUidAndPassword(mockRepository, accounts);
+		mockRepository  = TestUtilMockHelper.trainAcRepoFindByUidAndAgeOrderByUid(mockRepository, accounts);
 	}
 	
 	@Test
@@ -45,7 +45,8 @@ public class AccountsServiceTest {
 		UtilEnvInfo.showCurrentClassMethod();
 		for (Iterator<Account> itr = accounts.iterator(); itr.hasNext();) {
 			Account account = itr.next();
-			Account result = target.searchAccount(account.getUid(), account.getAge());
+			List<Account> results = target.searchAccount(account.getUid(), account.getAge());
+			Account result = results.get(0);
 			assertThat(result.getUid()).isEqualTo(account.getUid());
 			assertThat(result.getName()).isEqualTo(account.getName());
 			assertThat(result.getAge()).isEqualTo(account.getAge());

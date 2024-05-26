@@ -1,5 +1,7 @@
 package jp.mydns.kon104.study.sboot.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +27,8 @@ public class AccountsController {
 	@GetMapping("/")
 	public ModelAndView index(ModelAndView mav) {
 		UtilEnvInfo.showCurrentClassMethod();
-		mav.addObject("rs", null);
+		List<Account> accounts = accountsService.searchAccount();
+		mav.addObject("rs", accounts);
 		mav.setViewName("accounts/index");
 		return mav;
 	}
@@ -36,8 +39,8 @@ public class AccountsController {
 			@RequestParam(name = "age", required = false, defaultValue = "0") int age) {
 		UtilEnvInfo.showCurrentClassMethod();
 		System.out.printf("\tuid=%d, age=%d\n", uid, age);
-		Account account = accountsService.searchAccount(uid, age);
-		mav.addObject("rs", account);
+		List<Account> accounts = accountsService.searchAccount(uid, age);
+		mav.addObject("rs", accounts);
 		mav.setViewName("accounts/index");
 		return mav;
 	}

@@ -1,5 +1,7 @@
 package jp.mydns.kon104.study.sboot.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,8 +19,13 @@ public class AccountsServiceImpl implements AccountsService {
 	}
 
 	@Override
-	public Account searchAccount(int id, int age) {
-		return accountsRepository.findByUidAndAge(id, age);
+	public List<Account> searchAccount() {
+		return accountsRepository.findAllByOrderByUid();
+	}
+
+	@Override
+	public List<Account> searchAccount(int id, int age) {
+		return accountsRepository.findByUidAndAgeOrderByUid(id, age);
 	}
 
 }
