@@ -28,4 +28,8 @@ public class AccountsServiceImpl implements AccountsService {
 		return accountsRepository.findByUidAndAgeOrderByUid(id, age);
 	}
 
+	@Override
+	public Account saveAccoount(Account account) {
+		return accountsRepository.save(account);
+	}
 }

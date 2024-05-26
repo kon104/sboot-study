@@ -8,5 +8,6 @@ public interface AccountsService {
 
 	public List<Account> searchAccount();
 	public List<Account> searchAccount(int id, int age);
+	public Account saveAccoount(Account account);
 
 }

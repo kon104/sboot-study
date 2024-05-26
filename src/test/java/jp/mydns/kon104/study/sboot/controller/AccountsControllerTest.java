@@ -59,11 +59,8 @@ public class AccountsControllerTest {
 	@Test
 	public void searchRequetByHttpパラメータ無しTest()  throws Exception {
 		UtilEnvInfo.showCurrentClassMethod();
-//		Account account = null;
 		this.mockMvc.perform(get("/accounts/search"))
-			.andExpect(status().isOk())
-			.andExpect(view().name("accounts/index"));
-//			.andExpect(model().attribute("rs", account));
+			.andExpect(status().isMethodNotAllowed());
 	}
 
 	@Test

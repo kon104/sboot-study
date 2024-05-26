@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
@@ -33,7 +34,7 @@ public class AccountsController {
 		return mav;
 	}
 
-	@RequestMapping("/search")
+	@PostMapping("/search")
 	public ModelAndView search(ModelAndView mav,
 			@RequestParam(name = "uid", required = false, defaultValue = "0") int uid,
 			@RequestParam(name = "age", required = false, defaultValue = "0") int age) {
@@ -45,4 +46,21 @@ public class AccountsController {
 		return mav;
 	}
 
+	@PostMapping("/add")
+	public ModelAndView add(ModelAndView mav,
+			@RequestParam(name = "name", required = true) String name,
+			@RequestParam(name = "age", required = true) int age,
+			@RequestParam(name = "address", required = true) String address) {
+		Account account = new Account();
+		account.setName(name);
+		account.setAge(age);
+		account.setAddress(address);
+		account = accountsService.saveAccoount(account);
+
+		List<Account> accounts = accountsService.searchAccount();
+		mav.addObject("rs", accounts);
+		mav.setViewName("accounts/index");
+		return mav;
+	}
+	
 }
