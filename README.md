@@ -49,7 +49,7 @@ CREATE TABLE account (
 INSERT INTO account (name, age, address) VALUES ('Mike', 18, 'tokyo');
 INSERT INTO account (name, age, address) VALUES ('Nancy', 25, 'kanagawa');
 CREATE USER hoge IDENTIFIED BY 'password';
-GRANT select ON springbootdb.* TO 'hoge'@'%';
+GRANT select,insert,update,delete ON springbootdb.* TO 'hoge'@'%';
 ```
 
 If you create the environment by steps above, you can access from the Host OS to MySQL Server on the Docker container using a command below.
