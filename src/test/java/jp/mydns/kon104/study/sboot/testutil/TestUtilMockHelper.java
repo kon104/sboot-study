@@ -33,6 +33,9 @@ public class TestUtilMockHelper {
 	}
 
 	public static AccountsService trainAcServiceSearchAccount(AccountsService mock, List<Account> list) {
+		// defining mock for serchAccount()
+		when(mock.searchAccount()).thenReturn(list);
+		// defining mock for serchAccount(uid, age)
 		for (Iterator<Account> itr = list.iterator(); itr.hasNext();) {
 			Account account = itr.next();
 			List<Account> accounts = new ArrayList<>();
