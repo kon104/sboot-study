@@ -4,10 +4,10 @@ Repository for studying Spring Boot.
 ## How to set up the environment coding the app on Spring Boot.
 ```
 $ sudo apt update
-$ sudo apt upgrade
-$ sudo apt install openjdk-21-jdk-headless
-$ sudo apt install maven
-$ sudo apt install vim git curl net-tools iputils-ping lsb-release
+$ sudo apt upgrade -y
+$ sudo apt install -y openjdk-21-jdk-headless
+$ sudo apt install -y maven
+$ sudo apt install -y vim git curl net-tools iputils-ping lsb-release
 
 $ git clone https://github.com/kon104/sboot-study.git
 
@@ -28,6 +28,8 @@ Log in to the Docker container where you want to run MySQL Server, and create th
 ```
 host $ docker exec -it my-ubuntu-mysql /bin/bash
 
+guest $ sudo apt update
+guest $ sudo apt upgrade -y
 guest $ sudo apt install -y vim git curl net-tools iputils-ping lsb-release
 quest $ sudo apt install -y mysql-server-8.0
 guest $ sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf
