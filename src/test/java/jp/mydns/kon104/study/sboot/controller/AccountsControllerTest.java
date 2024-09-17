@@ -19,7 +19,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.web.servlet.ModelAndView;
 
-import jp.mydns.kon104.study.sboot.bean.Account;
+import jp.mydns.kon104.study.sboot.entity.Account;
 import jp.mydns.kon104.study.sboot.service.AccountsService;
 import jp.mydns.kon104.study.sboot.testutil.TestUtilMockHelper;
 import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;

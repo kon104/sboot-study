@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: sboot-study
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/springbootdb
+    username: hoge
+    password: password
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    show-sql: true

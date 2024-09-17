@@ -12,7 +12,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import jp.mydns.kon104.study.sboot.bean.Account;
+import jp.mydns.kon104.study.sboot.entity.Account;
 import jp.mydns.kon104.study.sboot.repository.AccountsRepository;
 import jp.mydns.kon104.study.sboot.testutil.TestUtilMockHelper;
 import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;

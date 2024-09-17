@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
-
-import jp.mydns.kon104.study.sboot.bean.Account;
+import jp.mydns.kon104.study.sboot.entity.Account;
 import jp.mydns.kon104.study.sboot.service.AccountsService;
 import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;
 
@@ -18,7 +17,6 @@ import jp.mydns.kon104.study.sboot.util.UtilEnvInfo;
 @RequestMapping("/accounts")
 public class AccountsController {
 
-	@Autowired
 	private final AccountsService accountsService;
 
 	public AccountsController(AccountsService accountsService) {

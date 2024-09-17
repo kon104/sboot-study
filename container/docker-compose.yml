@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+
+  mysql-server:
+    image: mysql:8.0
+    container_name: mysql-sboot
+    networks:
+      - snet
+    ports:
+      - ${DB_PORT}:3306
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_ROOT_PASSWORD: ${ROOT_PASS}
+      MYSQL_DATABASE: ${DB_NAME}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASS}
+      TZ: "Asia/Tokyo"
+    restart: always
+    tty: true
+
+networks:
+  snet:
+    name: sboot-net
+    driver: bridge

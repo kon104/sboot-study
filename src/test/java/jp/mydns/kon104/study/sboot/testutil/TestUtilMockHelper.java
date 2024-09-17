@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import jp.mydns.kon104.study.sboot.bean.Account;
+import jp.mydns.kon104.study.sboot.entity.Account;
 import jp.mydns.kon104.study.sboot.repository.AccountsRepository;
 import jp.mydns.kon104.study.sboot.service.AccountsService;
 

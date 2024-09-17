@@ -1,4 +1,4 @@
-package jp.mydns.kon104.study.sboot.bean;
+package jp.mydns.kon104.study.sboot.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
